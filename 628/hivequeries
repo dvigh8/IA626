@@ -1,0 +1,9 @@
+#David Josephs
+SELECT `violation code`, COUNT(`violation code`) FROM `default`.`parking_violations_2016` GROUP BY `violation code` #1
+SELECT `vehicle make`,count(`vehicle make`) FROM `default`.`parking_violations_2016` group by `vehicle make` #2
+SELECT `vehicle body type`, count(`vehicle body type`), `registration state`,(split(`issue date`,'[/]')[0]) FROM `default`.`parking_violations_2016` 
+where `registration state` = "NY" and (split(`issue date`,'[/]')[0]) = "07"
+group by `vehicle body type`, `registration state`,`issue date` #3
+# plate id and number of violations for the plate tpype PAS
+SELECT `plate id`, count(`plate id`) FROM `default`.`parking_violations_2016` where `plate type` = "PAS" group by `plate id` #4
+
